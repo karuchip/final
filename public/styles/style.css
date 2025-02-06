@@ -1,23 +1,7 @@
-
-$primary-color: #1A1A1C;
-$secondary-color: #EAEAED;
-$white-color: #FFFFFF;
-$desc-font: 18px;
-$small-font: 16px;
-$head-weight: 700;
-$Inter: "Inter", serif;
-
-//フォントInter定義
-@mixin InterFont($f-size, $f-weight) {
-  font-family: "Inter", serif;
-  font-size: $f-size;
-  font-weight: $f-weight;
-}
-
 body {
   margin: 0;
   padding: 0;
-  color: $primary-color;
+  color: #1A1A1C;
   font-family: "Noto Sans JP", serif;
   font-optical-sizing: auto;
   font-weight: 500;
@@ -31,14 +15,13 @@ li {
 
 a {
   text-decoration: none;
-  color: $primary-color;
+  color: #1A1A1C;
 }
 
 p {
   line-height: 30.6px;
 }
 
-// header
 header {
   height: 38px;
   padding: 32px 40px;
@@ -50,51 +33,48 @@ header {
   width: calc(100% - 80px);
   z-index: 200;
   background-color: #FFFFFF;
-
-  nav {
-    ul {
-      display: flex;
-      margin: 0;
-      padding: 0;
-
-      .li-list {
-        margin-right: 32px;
-      }
-
-      a {
-        @include InterFont(16px, 500);
-        position: relative;
-        top: 6px;
-        padding-top: 8px;
-        padding-bottom: 8px;
-      }
-    }
-  }
 }
-  //ヘッダーロゴ（フッダーでも再使用）
-  .logo {
-    @include InterFont(24px, 700);
-    position: relative;
-    top: 5px;
-    text-align: center;
-    line-height: 29.05px;
-    letter-spacing: 0.02em;
-  }
-  //header内navのcontact
-  .li-contact {
-    width: 118px;
-    height: 35px;
-    border: 1px solid $secondary-color;
+header nav ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+header nav ul .li-list {
+  margin-right: 32px;
+}
+header nav ul a {
+  font-family: "Inter", serif;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+  top: 6px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
 
-  }
-  .a-contact{
-    font-size: 14px;
-    padding: 0;
-    margin-right: 0px;
-  }
+.logo {
+  font-family: "Inter", serif;
+  font-size: 24px;
+  font-weight: 700;
+  position: relative;
+  top: 5px;
+  text-align: center;
+  line-height: 29.05px;
+  letter-spacing: 0.02em;
+}
 
+.li-contact {
+  width: 118px;
+  height: 35px;
+  border: 1px solid #EAEAED;
+}
 
-//FV section1
+.a-contact {
+  font-size: 14px;
+  padding: 0;
+  margin-right: 0px;
+}
+
 .section1 {
   margin-top: 102px;
   display: flex;
@@ -117,12 +97,16 @@ header {
   line-height: 108px;
   letter-spacing: -1px;
 }
+
 .main-msg p {
   font-size: 18px;
   line-height: 30.6px;
 }
+
 .main-container a {
-  @include InterFont(16px, 600);
+  font-family: "Inter", serif;
+  font-size: 16px;
+  font-weight: 600;
   line-height: 26px;
   display: inline-block;
   text-align: center;
@@ -132,31 +116,28 @@ header {
   border: 1px solid #D8D8DB;
   margin-top: 20px;
 }
+
 .mainPic-container {
   width: 843px;
   height: 500px;
   position: relative;
 }
+
 .mainPic-container img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
-// @media screen and (min-width: 1440px) {
-//   .mainPic-container {
-//     width: auto;
-//     max-width: 100%;
-//     flex-grow: 1;
-//   }
-// }
-
 .mainPic-container p {
-  @include InterFont(120px, 700);
-  color: $secondary-color;
+  font-family: "Inter", serif;
+  font-size: 120px;
+  font-weight: 700;
+  color: #EAEAED;
   line-height: 150px;
   letter-spacing: 0.035em;
   margin: 0;
@@ -168,21 +149,15 @@ header {
   text-align: left;
 }
 
-
-//本文の位置: 画面中央揃え
-//section2~footer
-.center-container  {
+.center-container {
   width: 1024px;
   margin: 0 auto;
   padding: 0;
 }
 
-
-//section2
-
 .section2 {
   height: 696px;
-  background-color: $secondary-color;
+  background-color: #EAEAED;
   display: flex;
   align-items: center;
 }
@@ -198,10 +173,12 @@ header {
   height: 488px;
   overflow: hidden;
 }
+
 .img-container1 img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .service-desc {
@@ -210,12 +187,14 @@ header {
 }
 
 .service-desc h2 {
-  @include InterFont(58px, bold);
+  font-family: "Inter", serif;
+  font-size: 58px;
+  font-weight: bold;
   color: #FFFFFF;
   margin: 0;
   padding: 0;
   line-height: 100%;
-  padding-bottom: 10px;;
+  padding-bottom: 10px;
 }
 
 .subtitle {
@@ -227,7 +206,7 @@ header {
   display: inline-block;
   width: 32px;
   height: 1px;
-  background-color: $primary-color;
+  background-color: #1A1A1C;
   margin-right: 10px;
   vertical-align: middle;
 }
@@ -236,30 +215,31 @@ header {
   font-size: 18px;
 }
 
-
-//section3
 .section3 {
   height: 853px;
   display: flex;
-  align-items: center;;
+  align-items: center;
 }
+
 article {
   width: 30%;
 }
+
 .client-container {
   display: flex;
   justify-content: space-between;
 }
 
 .title-contents {
-
   padding-top: 22px;
   padding-bottom: 40px;
 }
 
 .title-contents h2 {
-  @include InterFont(58px, 700px);
-  color: $primary-color;
+  font-family: "Inter", serif;
+  font-size: 58px;
+  font-weight: 700px;
+  color: #1A1A1C;
   margin: 0;
 }
 
@@ -267,7 +247,7 @@ article {
   display: inline-block;
   width: 32px;
   height: 1px;
-  background-color: $primary-color;
+  background-color: #1A1A1C;
   margin-right: 10px;
   vertical-align: middle;
 }
@@ -278,15 +258,17 @@ article {
   overflow: hidden;
   padding: 0;
 }
+
 .img-container img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .badge {
   display: inline-flex;
-  background-color: $secondary-color;
+  background-color: #EAEAED;
   padding: 0 16px;
   font-size: 14px;
   margin: 18px 0 10px 0;
@@ -307,11 +289,8 @@ article {
   padding: 20px 0 0 0;
 }
 
-
-
-//section4
 .section4 {
-  background-color: $secondary-color;
+  background-color: #EAEAED;
   height: 859px;
 }
 
@@ -322,18 +301,18 @@ article {
 
 .contact-title {
   text-align: center;
-
-    h2 {
-      @include InterFont(58px, 700);
-      color: #FFFFFF;
-      margin: 0;
-      padding-top: 105px;
-    }
-
-    p {
-      font-size: 22px;
-      padding-bottom: 20px;
-    }
+}
+.contact-title h2 {
+  font-family: "Inter", serif;
+  font-size: 58px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+  padding-top: 105px;
+}
+.contact-title p {
+  font-size: 22px;
+  padding-bottom: 20px;
 }
 
 .form p {
@@ -355,15 +334,13 @@ article {
   width: 256px;
   height: 58px;
   color: #FFFFFF;
-  background-color: $primary-color;
+  background-color: #1A1A1C;
   margin: 40px auto;
   justify-content: center;
   align-items: center;
   font-weight: 700;
-
 }
 
-//footer
 footer {
   height: 192px;
   background-color: white;
@@ -373,11 +350,14 @@ footer {
   text-align: center;
 }
 
-.footer-container{
+.footer-container {
   width: 500px;
 }
 
 footer p {
-  @include InterFont(14px, 400);
+  font-family: "Inter", serif;
+  font-size: 14px;
+  font-weight: 400;
   color: #666666;
 }
+/*# sourceMappingURL=style.css.map */
