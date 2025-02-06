@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="/static/styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,500;1,14..32,500&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,500;1,14..32,500&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <script src="/static/form.js" defer></script>
     <title>POTEPAN Tech Partners</title>
   </head>
   <body>
@@ -14,9 +15,9 @@
       <div class="logo">POTEPAN Tech Partners</div>
       <nav>
         <ul>
-          <li class="li-list"><a href="">SERVICE</a></li>
-          <li class="li-list"><a href="">CLIENT</a></li>
-          <li class="li-contact"><a class="a-contact" href="">CONTACT</a></li>
+          <li class="li-list"><a href="#section2">SERVICE</a></li>
+          <li class="li-list"><a href="#section3">CLIENT</a></li>
+          <li class="li-contact"><a class="a-contact" href="#section4">CONTACT</a></li>
         </ul>
       </nav>
     </header>
@@ -30,20 +31,20 @@
             <h1>テクノロジーで<br>未来を創る</h1>
             <p>最先端の開発技術で<br>あなたのビジネスをお手伝いします</p>
           </div>
-          <a href="#">CONTACT</a>
+          <a href="#section4">CONTACT</a>
         </div>
         <div class="mainPic-container">
-          <img src="./images/1_main.png" alt="トップ画像">
+          <img src="/static/images/1_main.png" alt="トップ画像">
           <p>Create the Future</p>
         </div>
       </section>
 
       <!-- 本文の位置: 画面中央揃え -->
 
-      <section class="section2">
+      <section class="section2" id="section2">
         <div class="center-container section2-container">
           <div class="img-container1">
-            <img src="./images/2_service.png" alt="サービスイメージ画像">
+            <img src="/static/images/2_service.png" alt="サービスイメージ画像">
           </div>
           <div class="service-desc">
             <h2>SERVICE</h2>
@@ -53,7 +54,7 @@
         </div>
       </section>
 
-        <section class="section3">
+        <section class="section3" id="section3">
           <div class="center-container">
             <div class="title-contents">
               <h2>CLIENT</h2>
@@ -62,7 +63,7 @@
             <div class="client-container">
               <article class="artical">
                 <div class="img-container">
-                  <img src="./images/3_client1.png" alt="クライアントイメージ画像1">
+                  <img src="/static/images/3_client1.png" alt="クライアントイメージ画像1">
                 </div>
                 <label for=""><p class="badge">IT企業</p></label>
                 <p class="client-desc">新しいホームページの立ち上げをサポートしていただき感謝しています。私たちのビジョンとニーズを完璧に理解し、それを美しく機能的なウェブサイトに変えてくれました。</p>
@@ -70,7 +71,7 @@
               </article>
               <article class="artical">
                 <div class="img-container">
-                  <img src="./images/3_client2.png" width="483px" height="322px" alt="クライアントイメージ画像2">
+                  <img src="/static/images/3_client2.png" width="483px" height="322px" alt="クライアントイメージ画像2">
                 </div>
                 <label for=""><p class="badge">IT企業</p></label>
                 <p class="client-desc">私たちの企業ウェブサイトのリニューアルプロジェクトを担当していただきました。SEO対策とモバイル最適化にも細心の注意を払ってくれました。</p>
@@ -78,7 +79,7 @@
               </article>
               <article class="artical">
                 <div class="img-container">
-                  <img src="./images/3_client1.png" width="483px" height="322px" alt="クライアントイメージ画像3">
+                  <img src="/static/images/3_client1.png" width="483px" height="322px" alt="クライアントイメージ画像3">
                 </div>
                 <label for=""><p class="badge">飲食店</p></label>
                 <p class="client-desc">私たちのレストランのウェブサイトを再設計していただきました。店の料理と雰囲気を完璧に捉え、訪問者が簡単にメニューを閲覧し、予約を取れる使いやすいインターフェイスを提供してくれました。</p>
@@ -88,7 +89,7 @@
           </div>
         </section>
 
-        <section class="section4">
+        <section class="section4" id="section4">
           <div class="center-container">
             <div class="contact-content">
               <div class="contact-title">
@@ -96,24 +97,26 @@
                 <p>お問い合わせ</p>
               </div>
 
-              <form action="" class="form">
+              <form id="contact-form" class="form">
                 <div>
-                  <label for="company-name"><p>企業名</p></label>
-                  <input id="company-name" class="input" type="text">
+                  <label>
+                    <p>企業名</p>
+                    <input id="company-name" name="company-name" type="text" required class="input">
+                  </label>
                 </div>
                 <div>
                   <label for="name"><p>お名前</p></label>
-                  <input id="name" class="input" type="text">
+                  <input id="name" name="name" type="text" required class="input">
                 </div>
                 <div>
                   <label for="email"><p>メールアドレス</p></label>
-                  <input id="email" class="input" type="text">
+                  <input id="email" name="email" type="text" required class="input">
                 </div>
                 <div>
                   <label for="phone-number"><p>電話番号</p></label>
-                  <input id="phone-number" class="input" type="text">
+                  <input id="phone-number" name="phone-number" type="text" required class="input">
                 </div>
-                <button class="submit" type="submit">送信</button>
+                <button id="submit" type="submit" class="submit">送信</button>
               </form>
             </div>
           </div>
