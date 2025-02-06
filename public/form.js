@@ -1,4 +1,3 @@
-const MICROCMS_API_KEY = "ULt966FfabOAsH3EQuYdDlBGLyZwaMAqNvuy";
 
 const formEl = document.getElementById("contact-form");
 const buttonEl = document.getElementById("submit")

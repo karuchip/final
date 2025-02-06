@@ -1,3 +1,4 @@
+//apiキーは削除し変更済み
 const path = require('path');
 const express = require('express');
 const app = express();
@@ -48,7 +49,7 @@ async function sendContact(contact) {
 
   try {
     const resp = await fetch(
-      "https://bw98n6r601.microcms.io/api/v1/potepan",
+      "https://6r0fw25vyi.microcms.io/api/v1/potepan",
       {
         method: "POST",
         headers: {
@@ -75,11 +76,10 @@ async function sendMail({email, name}) {
   const message = buildMessage({email, name});
 
   try {
-    const resp = await sgMail
-    .send(message)
-      if (!resp.ok) {
+    const [response, body] = await sgMail.send(message)
+      if (response.statusCode >= 400) {
         const data= await resp.json();
-        throw new Error(`メールの送信に失敗しました: ${data.errors[0].message}`)
+        throw new Error(`メールの送信に失敗しました: ${JSON.stringify(body)}`);
       }
       return { ok: true };
   }catch(err){
