@@ -350,6 +350,10 @@ article {
   border-radius: 8px;
 }
 
+.input-entered {
+  border: 1px solid $primary-color;
+}
+
 .submit {
   display: flex;
   width: 256px;
@@ -366,18 +370,78 @@ article {
 //footer
 footer {
   height: 192px;
+  overflow: hidden;
   background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  display: relative;
 }
 
 .footer-container{
   width: 500px;
+  justify-content: center;
+  display: absolute;
+
 }
 
 footer p {
   @include InterFont(14px, 400);
   color: #666666;
+}
+
+
+.comp-message {
+  background-color: $primary-color;
+  width: 254px;
+  height: 48px;
+  margin-left: 123px;
+  position: relative;
+  border-radius: 8px;
+  filter: drop-shadow(0 4px $secondary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(100px);
+}
+//送信完了時のアニメーション
+@keyframes fadeInOut {
+  0% {
+    transform: translateY(100px);
+  }
+  20% {
+    transform: translateY(-60px);
+  }
+  80% {
+    transform: translateY(-60px);
+  }
+  100% {
+    transform: translateY(100px);
+  }
+}
+.show{
+  animation: fadeInOut 3000ms ease-out forwards;
+}
+
+.comp-message svg {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+}
+.comp-message span {
+  color: #FFFFFF;
+  font-size: 13px;
+  position: absolute;
+  top: 14px;
+  left: 50px;
+
+}
+
+// エラーメッセージ
+.err {
+  font-size: 12px;
+  color: #EC0000;
+  letter-spacing: 2%;
+  line-height: 170%;
 }
