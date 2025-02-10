@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 
 
 //sendgrid　メール本文
-function buildMessage({email, name}) {
+function buildMessage({email, name, company}) {
   return {
     personalizations: [
       {
@@ -26,18 +26,17 @@ function buildMessage({email, name}) {
       email: "hikaru.-27-@outlook.jp",
       name: "Hikaru Hatakeyama",
     },
-    subject: "お問い合わせありがとうございます",
+    subject: "お問い合わせいただきありがとうございます。",
     content: [
       {
         type: "text/plain",
         value: [
+          `${company}`,
           `${name}様`,
           "",
-          "お問い合わせいただき、誠にありがとうございます。",
-          "このメールは、システムによる自動返信であり、お問い合わせを受け付けたことをお知らせするものです。",
-          "お問い合わせ内容につきましては、担当者が確認の上、改めてご連絡させていただきます。",
-          "",
-          "通常、1営業日以内には回答を差し上げておりますが、内容によっては少々お時間をいただく場合がございます。",
+          "この度はお問い合わせいただきありがとうございます。",
+          "担当より追ってご連絡させていただきますので、",
+          "お待ちくださいませ。",
         ].join("\n"),
       },
     ],
@@ -46,23 +45,25 @@ function buildMessage({email, name}) {
 
 //MicroCMSへのデータ送信
 async function sendContact(contact) {
-
   try {
-    const resp = await fetch(
-      "https://6r0fw25vyi.microcms.io/api/v1/potepan",
+    console.log("送信データ：", contact);
+    const response = await fetch(
+      "https://vf9jrqgl0p.microcms.io/api/v1/contact",
       {
         method: "POST",
         headers: {
-          "X-MICROCMS-API-KEY": process.env.MICROCMS_API_KEY,
+          "X-MICROCMS-API-KEY": process.env.MICROCMS_API_KEY.trim(),
           "Content-Type": "application/json",
         },
         body: JSON.stringify(contact),
       }
     );
-    if (!resp.ok) {
-      throw new Error(`お問い合わせの送信に失敗しました：${resp.statusText}`);
+    if (!response.ok) {
+      throw new Error(`お問い合わせの送信に失敗しました：${response.statusText}`);
     }
-    return await resp.json();
+    return await response.json();
+    // const data = await response.json();
+    // console.log("レスポンス", data);
   } catch (err) {
     throw err;
   }
@@ -72,8 +73,8 @@ async function sendContact(contact) {
 const sgMail = require('@sendgrid/mail')
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
-async function sendMail({email, name}) {
-  const message = buildMessage({email, name});
+async function sendMail({email, name, company}) {
+  const message = buildMessage({email, name, company});
 
   try {
     const [response, body] = await sgMail.send(message)
@@ -91,12 +92,13 @@ async function sendMail({email, name}) {
 app.post("/api/contact", async (req, res) => {
   const contact = req.body
 
+
   try {
     await Promise.all([
       sendContact(contact),
-      sendMail({email: contact.email, name: contact.name})
+      sendMail({email: contact.email, name: contact.name, company: contact.company})
     ])
-    res.redirect("/complete")
+    res.json({ message: "お問い合わせ送信成功" });
   }catch(err) {
     console.error("error: ", err)
     res.status(500).json({message: err.message})
