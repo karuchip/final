@@ -30,8 +30,17 @@ a {
   color: $primary-color;
 }
 
-p {
-  font-weight: medium;
+//本文の位置: 画面中央揃え:section2~footer
+.center-container  {
+  width: 1024px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+@media (max-width: 1024px) {
+  .center-container {
+    max-width: 944px;
+  }
 }
 
 // header
@@ -75,7 +84,6 @@ header {
     position: relative;
     top: 5px;
     text-align: center;
-    line-height: auto;
     letter-spacing: -0.29px;
   }
   //header内navのcontact
@@ -98,6 +106,8 @@ header {
   margin-top: 102px;
   position: relative;
   height: 644px;
+  width: 100%;
+  overflow: hidden;
 }
 .main-container {
   display: flex;
@@ -145,6 +155,7 @@ header {
   width: 843px;
   height: 500px;
   overflow: hidden;
+  flex-grow: 1;
   position: relative;
   background-color: #D8D8DB;
   margin-left: 64px;
@@ -166,21 +177,41 @@ header {
   letter-spacing: 5.6px;
   margin: 0;
   position: relative;
-  top: -104px;
+  top: -106px;
   left: 420px;
-  // width: 1026px;
   height: 120px;
   display: inline-block;
+  white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+  .section1 {
+    height: 613px;
+  }
+  .main-container {
+    margin: 0 0 0 40px;
+  }
+  .main-msg h1 {
+    font-size: 48px;
+  }
+  .mainPic-container {
+    width: 573px;
+    height: 573px;
+    margin-left: 20px;
+    overflow: hidden;
+  }
+  .mainPic-msg {
+    font-size: 90px;
+    width: 464px;
+    white-space: wrap;
+    letter-spacing: 0;
+    top: -170px;
+    left: 49.5%;
+  }
 }
 
 
-//本文の位置: 画面中央揃え
-//section2~footer
-.center-container  {
-  width: 1024px;
-  margin: 0 auto;
-  padding: 0;
-}
+
 
 //section2
 .section2 {
@@ -208,8 +239,8 @@ header {
 }
 
 .service-desc {
-  width: 480px;
-  height: 288px;
+  max-width: 480px;
+  min-height: 288px;
 }
 
 .service-desc h2 {
@@ -226,8 +257,7 @@ header {
   font-size: 22px;
   line-height: 170%;
   letter-spacing: 0;
-  margin-top: 0;
-  margin-bottom: 40px;
+  margin: 0 0 40px 0;
 }
 
 .subtitle span {
@@ -240,10 +270,40 @@ header {
 }
 
 .desc {
+  padding-top: 40px;
   font-size: 18px;
   line-height: 170%;
   letter-spacing: 0;
   margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .section2 {
+    height: 670px;
+  }
+
+  .section2-container {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .img1-container {
+    width: 430px;
+    height: 430px;
+    overflow: hidden;
+  }
+
+  .service-desc {
+    max-width: 462px;
+    height: auto;
+  }
+
+  .desc {
+    padding-top: 40px;
+    overflow-wrap: break-word;
+    max-width: 462px;
+    min-height: 123px;
+  }
 }
 
 
@@ -257,7 +317,7 @@ header {
   width: 336px;
 }
 
-.article2 {
+.article2, .article3 {
   width: 312px;
 }
 
@@ -272,7 +332,7 @@ header {
 }
 
 .title-contents h2 {
-  @include InterFont(58px, 700px);
+  @include InterFont(58px, 700);
   color: $primary-color;
   margin: 0;
   width: 204px;
@@ -302,7 +362,7 @@ header {
   padding: 0;
 }
 
-img-container2 {
+.img-container2, .img-container3 {
   width: 312px;
   height: 160px;
   overflow: hidden;
@@ -311,11 +371,11 @@ img-container2 {
 
 .img-container1 img {
   width: 100%;
-  height: 100%;
+  height: 160px;
   object-fit: cover;
 }
 
-.img-container2 img {
+.img-container2 img, .img-container3 img {
   width: 100%;
   height: 160px;
   object-fit: cover;
@@ -363,6 +423,28 @@ img-container2 {
   padding: 20px 0 0 0;
 }
 
+// @media (max-width: 1024px) {
+//   .section3 {
+//     height: 1345px;
+//     width: 1024px;
+//     width: 641px;
+//   }
+//   .client-container {
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: space-evenly;
+//     align-items: start;
+//   }
+//   .article1, .article2, .article3 {
+//     max-width: 462px;
+//     min-width: 300px;
+//   }
+//   .img-container1, .img-container2, .img-container3 {
+//     max-width: 462px;
+//     min-width: 300px;
+//     height: 221px;
+//   }
+// }
 
 
 //section4
@@ -441,13 +523,13 @@ footer {
   justify-content: center;
   align-items: center;
   text-align: center;
-  display: relative;
+  position: relative;
 }
 
 .footer-container{
   width: 500px;
   justify-content: center;
-  display: absolute;
+  position: absolute;
   margin-top: 30px;
 }
 
@@ -490,10 +572,6 @@ footer p {
 }
 .show{
   animation: fadeInOut 3000ms ease-out forwards;
-}
-
-.comp-message {
-  display: column;
 }
 
 .comp-message svg {
