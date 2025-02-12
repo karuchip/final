@@ -27,6 +27,7 @@ a {
 
 @media (max-width: 1024px) {
   .center-container {
+    width: auto;
     max-width: 944px;
   }
 }
@@ -463,6 +464,8 @@ header nav ul a {
 
 .contact-title {
   text-align: center;
+  margin: 0 auto;
+  width: 282px;
 }
 .contact-title h2 {
   font-family: "Inter", serif;
@@ -490,12 +493,13 @@ header nav ul a {
 }
 
 .input {
-  width: 672px;
-  height: 32px;
+  width: 704px;
+  height: 56px;
   margin: 0 0 16px 0;
   padding: 12px 16px;
   border: 1px solid #D8D8DB;
   border-radius: 8px;
+  box-sizing: border-box;
 }
 
 .input-entered {
@@ -516,6 +520,25 @@ header nav ul a {
   border: none;
 }
 
+@media (max-width: 1024px) {
+  .section4 {
+    padding: 0 40px;
+    width: auto;
+  }
+  .contact-content {
+    width: 100%;
+  }
+  .contact-title {
+    margin: 0 auto;
+  }
+  .form-container {
+    width: 100%;
+  }
+  .input {
+    box-sizing: border-box;
+    width: 100%;
+  }
+}
 footer {
   height: 192px;
   overflow: hidden;
@@ -542,20 +565,6 @@ footer p {
   line-height: 150%;
   padding: 0;
   margin: 24px 0 0 0;
-}
-
-.comp-message {
-  background-color: #1A1A1C;
-  width: 254px;
-  height: 48px;
-  margin-left: 123px;
-  position: relative;
-  border-radius: 8px;
-  filter: drop-shadow(0 4px #EAEAED);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: translateY(150px);
 }
 
 @-webkit-keyframes fadeInOut {
@@ -590,6 +599,20 @@ footer p {
 .show {
   -webkit-animation: fadeInOut 3000ms ease-out forwards;
           animation: fadeInOut 3000ms ease-out forwards;
+}
+
+.comp-message {
+  background-color: #1A1A1C;
+  width: 254px;
+  height: 48px;
+  margin-left: 123px;
+  position: relative;
+  border-radius: 8px;
+  filter: drop-shadow(0 4px #EAEAED);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(150px);
 }
 
 .comp-message svg {
