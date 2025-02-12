@@ -42,6 +42,7 @@ a {
 
 @media (max-width: 1024px) {
   .center-container {
+    width: auto;
     max-width: 944px;
     // display: grid;
     // grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -477,29 +478,6 @@ header {
   }
 }
 
-// @media (max-width: 1024px) {
-//   .section3 {
-//     height: 1345px;
-//     width: 1024px;
-//     width: 641px;
-//   }
-//   .client-container {
-//     display: flex;
-//     flex-wrap: wrap;
-//     justify-content: space-evenly;
-//     align-items: start;
-//   }
-//   .article1, .article2, .article3 {
-//     max-width: 462px;
-//     min-width: 300px;
-//   }
-//   .img-container1, .img-container2, .img-container3 {
-//     max-width: 462px;
-//     min-width: 300px;
-//     height: 221px;
-//   }
-// }
-
 
 //section4
 .section4 {
@@ -514,6 +492,8 @@ header {
 
 .contact-title {
   text-align: center;
+  margin: 0 auto;
+  width: 282px;
 
     h2 {
       @include InterFont(58px, 700);
@@ -541,12 +521,13 @@ header {
 }
 
 .input {
-  width: 672px;
-  height: 32px;
+  width: 704px;
+  height: 56px;
   margin: 0 0 16px 0;
   padding: 12px 16px;
   border: 1px solid #D8D8DB;
   border-radius: 8px;
+  box-sizing: border-box;
 }
 
 .input-entered {
@@ -565,8 +546,29 @@ header {
   font-weight: 700;
   padding: 0;
   border: none;
-
 }
+
+@media (max-width: 1024px) {
+  .section4 {
+    padding: 0 40px;
+    width: auto;
+  }
+  .contact-content {
+    width: 100%;
+  }
+  .contact-title {
+    margin: 0 auto;
+  }
+  .form-container {
+    width: 100%;
+  }
+  .input {
+    box-sizing: border-box;
+    width: 100%;
+    // max-width: 944px;;
+  }
+}
+
 
 //footer
 footer {
@@ -596,19 +598,6 @@ footer p {
 }
 
 
-.comp-message {
-  background-color: $primary-color;
-  width: 254px;
-  height: 48px;
-  margin-left: 123px;
-  position: relative;
-  border-radius: 8px;
-  filter: drop-shadow(0 4px $secondary-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: translateY(150px);
-}
 //送信完了時のアニメーション
 @keyframes fadeInOut {
   0% {
@@ -628,6 +617,19 @@ footer p {
   animation: fadeInOut 3000ms ease-out forwards;
 }
 
+.comp-message {
+  background-color: $primary-color;
+  width: 254px;
+  height: 48px;
+  margin-left: 123px;
+  position: relative;
+  border-radius: 8px;
+  filter: drop-shadow(0 4px $secondary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(150px);
+}
 .comp-message svg {
   position: absolute;
   top: 12px;
