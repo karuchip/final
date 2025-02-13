@@ -84,3 +84,25 @@ function validationCheck(company, name, email, phoneNumber) {
   return isValid = true;
 }
 
+
+// ハンバーガーメニュー
+const menu = document.getElementById("js-menu");
+const cancel = document.getElementById("js-cancel");
+const nav = document.getElementById("js-nav");
+
+const toggleActive = ()=>{
+  menu.classList.toggle('active');
+  cancel.classList.toggle('active');
+  nav.classList.toggle('active');
+}
+
+const btns = Array.from(document.getElementsByClassName("js-icon"));
+btns.forEach((btn) => {
+  btn.addEventListener("click", toggleActive)
+});
+
+const items = Array.from(document.getElementsByClassName("js-lists"));
+items.forEach ((item) => {
+  item.addEventListener("click", toggleActive)
+});
+

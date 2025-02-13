@@ -19,6 +19,7 @@ body {
   font-style: normal;
   text-underline-position: from-font;
   letter-spacing: 0;
+  position: relative;
 }
 
 li {
@@ -62,8 +63,12 @@ header {
   position: fixed;
   top: 0;
   width: calc(100% - 80px);
-  z-index: 200;
+  z-index: 1000;
   background-color: #FFFFFF;
+
+  .menu-icon {
+    display: none;
+  }
 
   nav {
     ul {
@@ -111,7 +116,7 @@ header {
   @media (max-width: 640px) {
     header {
       width: 100%;
-      background-color: aqua;
+      background-color: #ffffff;
       padding: 18px 12px;
       height: 22px;
     }
@@ -121,9 +126,62 @@ header {
       padding: 0;
       top: 0;
     }
-    nav {
+    .nav-list {
       display: none;
     }
+
+    // ハンバーガーメニュー
+
+    #js-menu {
+      display: block;
+    }
+    .menu-icon {
+      position: absolute;
+      z-index: 1000;
+      top: 18px;
+      right: 40px;
+    }
+
+    .nav-hanb {
+      width: 100%;
+      background-color: white;
+      height: 100%;
+      position: fixed;
+      z-index: 500;
+
+      ul {
+        height: 812px;
+        padding: 24px;
+
+        li {
+          margin: 0 auto;
+          width: 288px;
+          display: flex;
+          justify-content: center;
+          margin-bottom: 16px;
+
+          a {
+            @include InterFont(16px, 600px);
+            line-height: 22px;
+            padding: 13px 0;
+          }
+        }
+      }
+    }
+    .hanb-contact {
+      border: 1px solid $secondary-color;
+      height: 58px;
+
+      a {
+        height: 22px;
+        margin: auto 0;
+      }
+    }
+
+    .active {
+      display: none;
+    }
+
   }
 
 
@@ -217,6 +275,9 @@ header {
   }
   .main-container {
     margin: 0;
+  }
+  .main-msg {
+    padding-left: 40px;
   }
   .main-msg h1 {
     font-size: 48px;

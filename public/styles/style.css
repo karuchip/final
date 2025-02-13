@@ -8,6 +8,7 @@ body {
   font-style: normal;
   text-underline-position: from-font;
   letter-spacing: 0;
+  position: relative;
 }
 
 li {
@@ -47,8 +48,11 @@ header {
   position: fixed;
   top: 0;
   width: calc(100% - 80px);
-  z-index: 200;
+  z-index: 1000;
   background-color: #FFFFFF;
+}
+header .menu-icon {
+  display: none;
 }
 header nav ul {
   display: flex;
@@ -95,7 +99,7 @@ header nav ul a {
 @media (max-width: 640px) {
   header {
     width: 100%;
-    background-color: aqua;
+    background-color: #ffffff;
     padding: 18px 12px;
     height: 22px;
   }
@@ -105,7 +109,52 @@ header nav ul a {
     padding: 0;
     top: 0;
   }
-  nav {
+  .nav-list {
+    display: none;
+  }
+  #js-menu {
+    display: block;
+  }
+  .menu-icon {
+    position: absolute;
+    z-index: 1000;
+    top: 18px;
+    right: 40px;
+  }
+  .nav-hanb {
+    width: 100%;
+    background-color: white;
+    height: 100%;
+    position: fixed;
+    z-index: 500;
+  }
+  .nav-hanb ul {
+    height: 812px;
+    padding: 24px;
+  }
+  .nav-hanb ul li {
+    margin: 0 auto;
+    width: 288px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  .nav-hanb ul li a {
+    font-family: "Inter", serif;
+    font-size: 16px;
+    font-weight: 600px;
+    line-height: 22px;
+    padding: 13px 0;
+  }
+  .hanb-contact {
+    border: 1px solid #EAEAED;
+    height: 58px;
+  }
+  .hanb-contact a {
+    height: 22px;
+    margin: auto 0;
+  }
+  .active {
     display: none;
   }
 }
@@ -204,6 +253,9 @@ header nav ul a {
   }
   .main-container {
     margin: 0;
+  }
+  .main-msg {
+    padding-left: 40px;
   }
   .main-msg h1 {
     font-size: 48px;
