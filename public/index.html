@@ -12,41 +12,43 @@
   </head>
   <body>
     <header>
-      <div class="logo">POTEPAN Tech Partners</div>
+      <div class="header-logo">POTEPAN Tech Partners</div>
 
-      <div class="menu-icon js-icon" id="js-menu">
-        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 17h12a1 1 0 0 1 .117 1.993L15 19H3a1 1 0 0 1-.117-1.993L3 17h12H3Zm0-6h18a1 1 0 0 1 .117 1.993L21 13H3a1 1 0 0 1-.117-1.993L3 11h18H3Zm0-6h15a1 1 0 0 1 .117 1.993L18 7H3a1 1 0 0 1-.117-1.993L3 5h15H3Z" fill="#212121"/></svg>
-      </div>
-      <div class="menu-icon js-icon active" id="js-cancel">
-        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m4.21 4.387.083-.094a1 1 0 0 1 1.32-.083l.094.083L12 10.585l6.293-6.292a1 1 0 1 1 1.414 1.414L13.415 12l6.292 6.293a1 1 0 0 1 .083 1.32l-.083.094a1 1 0 0 1-1.32.083l-.094-.083L12 13.415l-6.293 6.292a1 1 0 0 1-1.414-1.414L10.585 12 4.293 5.707a1 1 0 0 1-.083-1.32l.083-.094-.083.094Z" fill="#212121"/></svg>
+      <div class="icon-box">
+        <button class="js-icon" id="menu-btn" aria-label="メニューを開く">
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 17h12a1 1 0 0 1 .117 1.993L15 19H3a1 1 0 0 1-.117-1.993L3 17h12H3Zm0-6h18a1 1 0 0 1 .117 1.993L21 13H3a1 1 0 0 1-.117-1.993L3 11h18H3Zm0-6h15a1 1 0 0 1 .117 1.993L18 7H3a1 1 0 0 1-.117-1.993L3 5h15H3Z" fill="#212121"/></svg>
+        </button>
+        <button class="js-icon inactive" id="cancel-btn" aria-label="メニューを閉じる">
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m4.21 4.387.083-.094a1 1 0 0 1 1.32-.083l.094.083L12 10.585l6.293-6.292a1 1 0 1 1 1.414 1.414L13.415 12l6.292 6.293a1 1 0 0 1 .083 1.32l-.083.094a1 1 0 0 1-1.32.083l-.094-.083L12 13.415l-6.293 6.292a1 1 0 0 1-1.414-1.414L10.585 12 4.293 5.707a1 1 0 0 1-.083-1.32l.083-.094-.083.094Z" fill="#212121"/></svg>
+        </button>
       </div>
 
-      <nav class="nav-list">
-        <ul>
-          <li class="li-list"><a href="#section2">SERVICE</a></li>
-          <li class="li-list"><a href="#section3">CLIENT</a></li>
-          <li class="li-contact"><a class="a-contact" href="#section4">CONTACT</a></li>
+      <nav class="nav" role="navigation">
+        <ul class="list">
+          <li><a href="#section2">SERVICE</a></li>
+          <li><a href="#section3">CLIENT</a></li>
+          <li><a href="#section4">CONTACT</a></li>
         </ul>
       </nav>
     </header>
 
     <!-- ハンバーガーメニュー -->
-    <nav class="nav-hanb active" id="js-nav">
-      <ul>
+    <nav class="nav-hanb inactive" id="hanb-menu" role="navigation">
+      <ul class="hanb-list">
         <li class="js-lists"><a href="#section2">SERVICE</a></li>
         <li class="js-lists"><a href="#section3">CLIENT</a></li>
-        <li class="hanb-contact js-lists"><a href="#section4">CONTACT</a></li>
+        <li class="js-lists"><a href="#section4">CONTACT</a></li>
       </ul>
     </nav>
 
     <main>
 
       <!-- FV -->
-      <section class="section1">
+      <section class="hero">
         <div class="main-container">
           <div class="main-msg">
-            <h1>テクノロジーで<br>未来を創る</h1>
-            <p>最先端の開発技術で<br>あなたのビジネスをお手伝いします</p>
+            <h1><span>テクノロジーで</span><span>未来を創る</span></h1>
+            <p><span>最先端の開発技術で</span><span>あなたのビジネスをお手伝いします</span></p>
             <div class="contact-link">
               <a href="#section4">CONTACT</a>
             </div>
@@ -85,38 +87,32 @@
               <div class="img-container1 container">
                 <img src="/static/images/3_client1.png" alt="クライアントイメージ画像1">
               </div>
-              <!-- <label> -->
-                <div class="badge">
-                  <p class="badge-content">IT企業</p>
-                </div>
-                <p class="client-desc">新しいホームページの立ち上げをサポートしていただき感謝しています。私たちのビジョンとニーズを完璧に理解し、それを美しく機能的なウェブサイトに変えてくれました。</p>
-                <p class="client-name">株式会社COMPANY</p>
-              <!-- </label> -->
+              <div class="badge">
+                <p class="badge-content">IT企業</p>
+              </div>
+              <p class="client-desc">新しいホームページの立ち上げをサポートしていただき感謝しています。私たちのビジョンとニーズを完璧に理解し、それを美しく機能的なウェブサイトに変えてくれました。</p>
+              <p class="client-name">株式会社COMPANY</p>
             </article>
             <article class="article2">
               <div class="img-container2 container">
                 <img src="/static/images/3_client2.png" alt="クライアントイメージ画像2">
               </div>
-              <label>
-                <div class="badge">
-                  <p class="badge-content">IT企業</p>
-                </div>
-                <p class="client-desc">私たちの企業ウェブサイトのリニューアルプロジェクトを担当していただきました。SEO対策とモバイル最適化にも細心の注意を払ってくれました。</p>
-                <p class="client-name">株式会社サテライトオフィス</p>
-              </label>
+              <div class="badge">
+                <p class="badge-content">IT企業</p>
+              </div>
+              <p class="client-desc">私たちの企業ウェブサイトのリニューアルプロジェクトを担当していただきました。SEO対策とモバイル最適化にも細心の注意を払ってくれました。</p>
+              <p class="client-name">株式会社サテライトオフィス</p>
             </article>
             <article class="article3">
               <div class="img-container3 container">
                 <img src="/static/images/3_client1.png" alt="クライアントイメージ画像3">
               </div>
-              <label>
-                <div class="badge">
-                  <p class="badge-content">飲食店</p>
-                </div>
-                <p class="client-desc">私たちのレストランのウェブサイトを再設計していただきました。店の料理と雰囲気を完璧に捉え、訪問者が簡単にメニューを閲覧し、予約を取れる使いやすいインターフェイスを提供してくれました。</p>
-                <p class="client-name">株式会社うまい堂</p>
-              </label>
-              </article>
+              <div class="badge">
+                <p class="badge-content">飲食店</p>
+              </div>
+              <p class="client-desc">私たちのレストランのウェブサイトを再設計していただきました。店の料理と雰囲気を完璧に捉え、訪問者が簡単にメニューを閲覧し、予約を取れる使いやすいインターフェイスを提供してくれました。</p>
+              <p class="client-name">株式会社うまい堂</p>
+            </article>
           </div>
         </div>
       </section>
@@ -150,7 +146,7 @@
 
                 <label>
                   <p>電話番号</p>
-                  <input id="phone-number" name="phoneNumber" type="text" class="input">
+                  <input id="phoneNumber" name="phoneNumber" type="text" class="input">
                   <div id="phone-err" class="err"></div>
                 </label>
                 <button id="submit" type="submit" class="submit">送信</button>
@@ -162,9 +158,9 @@
 
       <footer>
         <div class="footer-container">
-          <div class="logo logo-bigger">POTEPAN Tech Partners</div>
+          <div class="footer-logo logo-bigger">POTEPAN Tech Partners</div>
           <p>© 2024 POTEPAN Tech Partners. All rights reserved.</p>
-          <div id="comp-message" class="comp-message">
+          <div id="completion-message" class="completion-message">
             <svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 1.999c5.524 0 10.002 4.478 10.002 10.002 0 5.523-4.478 10.001-10.002 10.001-5.524 0-10.002-4.478-10.002-10.001C1.998 6.477 6.476 1.999 12 1.999Zm0 1.5a8.502 8.502 0 1 0 0 17.003A8.502 8.502 0 0 0 12 3.5Zm-.004 7a.75.75 0 0 1 .744.648l.007.102.003 5.502a.75.75 0 0 1-1.493.102l-.007-.101-.003-5.502a.75.75 0 0 1 .75-.75ZM12 7.003a.999.999 0 1 1 0 1.997.999.999 0 0 1 0-1.997Z" fill="#DDE6E8"/></svg>
             <span>お問い合わせが完了しました</span>
           </div>
