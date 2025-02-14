@@ -86,14 +86,14 @@ function validationCheck(company, name, email, phoneNumber) {
 
 
 // ハンバーガーメニュー
-const menu = document.getElementById("js-menu");
-const cancel = document.getElementById("js-cancel");
-const nav = document.getElementById("js-nav");
+const menu = document.getElementById("menu-btn");
+const cancel = document.getElementById("cancel-btn");
+const nav = document.getElementById("hanb-menu");
 
 const toggleActive = ()=>{
-  menu.classList.toggle('active');
-  cancel.classList.toggle('active');
-  nav.classList.toggle('active');
+  menu.classList.toggle('inactive');
+  cancel.classList.toggle('inactive');
+  nav.classList.toggle('inactive');
 }
 
 const btns = Array.from(document.getElementsByClassName("js-icon"));
