@@ -2,7 +2,7 @@
 const formEl = document.getElementById("contact-form");
 const buttonEl = document.getElementById("submit")
 
-formEl.addEventListener("submit", (evt) => {
+formEl.addEventListener("submit", async(evt) => {
   evt.preventDefault();
 
   const formData = new FormData(formEl);
@@ -13,7 +13,8 @@ formEl.addEventListener("submit", (evt) => {
   const email = entries.email;
   const phoneNumber = entries.phoneNumber;
 
-   validationCheck(company, name, email, phoneNumber);
+  //非同期バリデーションチェック
+   const isValid = await validationCheck(company, name, email, phoneNumber);
    if(isValid===true) {
     sendContact(entries);
    }else{
@@ -35,53 +36,85 @@ async function sendContact(entries) {
   const data = await response.json();
   console.log(data);
   if (response.ok) {
-    const messageEl = document.getElementById("comp-message");
+    const messageEl = document.getElementById("completion-message");
     messageEl.classList.add("show");
   }
 }
 
 //form入力のバリデーションチェック
-function validationCheck(company, name, email, phoneNumber) {
+async function validationCheck(company, name, email, phoneNumber) {
 
-  document.getElementById("company-err").innerHTML = "";
-  document.getElementById("name-err").innerHTML = "";
-  document.getElementById("email-err").innerHTML = "";
-  document.getElementById("phone-err").innerHTML = "";
+  //エラーメッセージの削除
+  errMessageReset();
+
+  //エラーボックス（赤枠）の削除
+  boxColorReset();
+
+  const isValid = true;
 
   // 企業名
   if(!company) {
     document.getElementById("company-err").innerHTML = "企業名を入力してください";
+    //エラーボックス（赤枠）の追加
+    boxColorChange("company");
     isValid = false;
   }
 
   // お名前
   if(!name) {
     document.getElementById("name-err").innerHTML = "お名前を入力してください";
+    boxColorChange("name");
     isValid = false;
   }
 
   // メールアドレス
   if(!email) {
     document.getElementById("email-err").innerHTML = "メールアドレスを入力してください";
+    boxColorChange("email");
     isValid = false;
   }else if (!email.match(/^[A-Za-z0-9@.]+$/)){
     document.getElementById("email-err").innerHTML = "半角英数字入力してください";
+    boxColorChange("email");
     isValid = false;
   }else if (!email.includes("@")){
     document.getElementById("email-err").innerHTML = "正しいメールアドレスを入力してください";
+    boxColorChange("email");
     isValid = false;
   }
 
   // 電話番号
   if(!phoneNumber) {
     document.getElementById("phone-err").innerHTML = "電話番号を入力してください";
+    boxColorChange("phoneNumber");
     isValid = false;
   }else if(isNaN(phoneNumber)) {
     document.getElementById("phone-err").innerHTML = "半角数字を入力してください";
+    boxColorChange("phoneNumber");
     isValid = false;
   }
+  return isValid;
+}
 
-  return isValid = true;
+
+//エラーメッセージの削除
+function errMessageReset() {
+  const items = ["company-err", "name-err", "email-err", "phone-err"];
+  items.forEach((item) => {
+    document.getElementById(item).innerHTML = "";
+  })
+}
+
+//エラーボックス（赤枠）の削除
+function boxColorReset() {
+  const categories =["company", "name", "email", "phoneNumber"];
+  categories.forEach((category) => {
+    document.getElementById(category).classList.remove("err-box");
+  })
+}
+
+//エラーボックス（赤枠）の追加
+function boxColorChange(category) {
+  return document.getElementById(category).classList.add("err-box");
 }
 
 
