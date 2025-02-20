@@ -140,8 +140,37 @@ header {
   }
 }
 
-//ホバー時のアニメーション
-  //contactボタン
+
+//ホバー時のアニメーション　nav
+  .animation1{
+
+    a::before {
+      display:block;
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      // inset: 0;
+      position: absolute;
+
+      background-color: $primary-color;
+      transition: transform 300ms ease-out;
+      transform: scaleX(0);
+      transform-origin: right;
+      overflow: hidden;
+      // z-index: -1;
+    }
+
+    a:hover::before {
+      transform: scaleX(1);
+      transform-origin: left;
+      // z-index: -1;
+    }
+  }
+
+  //ホバー時のアニメーション　contactボタン
   .animation2 {
 
     a {
@@ -172,33 +201,6 @@ header {
     }
   }
 
-  .animation1{
-
-    a::before {
-      display:block;
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      // inset: 0;
-      position: absolute;
-
-      background-color: $primary-color;
-      transition: transform 300ms ease-out;
-      transform: scaleX(0);
-      transform-origin: right;
-      overflow: hidden;
-      // z-index: -1;
-    }
-
-    a:hover::before {
-      transform: scaleX(1);
-      transform-origin: left;
-      // z-index: -1;
-    }
-  }
 
 
 //ヘッダー　レスポンシブ対応
@@ -358,11 +360,6 @@ header {
   align-items: center;
 }
 
-//contactボタン　ホバー時のアニメーション
-.contact-link a:hover {
-  color: white;
-  background-color: $primary-color;
-}
 //遷移時のアニメーション
 .contact-link a:focus {
   animation-timing-function: ease-out;
@@ -375,7 +372,7 @@ header {
   overflow: hidden;
   flex-grow: 1;
   position: relative;
-  background-color: #D8D8DB;
+  background-color: #FFFFFF;
   margin-left: 64px;
 }
 
@@ -386,6 +383,7 @@ header {
   position: absolute;
   top: 0;
   left: 0;
+  clip-path: inset(0 0 100% 0);
 }
 
 .mainPic-msg {
@@ -516,6 +514,7 @@ header {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  clip-path: inset(0 0 100% 0);
 }
 
 .service-desc {
@@ -1105,4 +1104,101 @@ footer p {
   color: #EC0000;
   letter-spacing: 2%;
   line-height: 170%;
+}
+
+
+//全体のアニメーション
+
+//FV
+//main-pic
+@keyframes movePic {
+  0% {
+    clip-path: inset(0 0 100% 0); /* 上から非表示 */
+  }
+  100% {
+    clip-path: inset(0 0 0 0); /* 全体を表示 */
+  }
+}
+
+#fv-animation1.visible img {
+  animation: movePic 0.6s ease-in-out forwards;
+}
+
+//mainPic-message
+#fv-animation2 {
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+
+}
+#fv-animation2.visible {
+  opacity: 1;
+}
+
+//h1 -1
+#fv-animation3 {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.2s ease-in-out, transform 0.6s ease-in-out;
+}
+#fv-animation3.visible {
+  opacity: 1;
+  transform: translate(0);
+}
+
+//h1 -2
+#fv-animation4 {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.2s ease-in-out, transform 0.6s ease-in-out;
+}
+#fv-animation4.visible {
+  opacity: 1;
+  transform: translate(0);
+}
+
+#fv-animation5 {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.1s ease-in-out, transform 0.6s ease-in-out;
+}
+#fv-animation5.visible {
+  opacity: 1;
+  transform: translate(0);
+}
+
+//section2
+.sec2-animation1.visible img {
+  animation: movePic 0.6s ease-in-out forwards;
+}
+
+.sec2-animation2 {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.1s ease-in-out, transform 0.6s ease-in-out;
+}
+.sec2-animation2.visible {
+  opacity: 1;
+  transform: translate(0);
+}
+
+
+//section3, section4
+.animation-to-bottom {
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: opacity 0.2s ease-in-out, transform 0.6s ease-in-out;
+}
+.animation-to-top {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.2s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.animation-to-bottom.visible {
+  opacity: 1;
+  transform: translate(0);
+}
+.animation-to-top.visible {
+  opacity: 1;
+  transform: translate(0);
 }
