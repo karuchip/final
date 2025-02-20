@@ -139,3 +139,61 @@ items.forEach ((item) => {
   item.addEventListener("click", toggleActive)
 });
 
+
+//アニメーション
+//FV
+
+function showElement(id, delay) {
+  setTimeout(function() {
+      document.getElementById(id).classList.add('visible');
+  }, delay);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  showElement('fv-animation1', 200);
+  showElement('fv-animation2', 200);
+  showElement('fv-animation3', 400);
+  showElement('fv-animation4', 600);
+  showElement('fv-animation5', 700);
+
+})
+
+
+//アニメーション
+//section2 ~ section4
+
+function animObserver(className, delay) {
+
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: [0]
+  }
+
+  function callback(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setTimeout(function() {
+          entry.target.classList.add('visible');
+        }, delay);
+      }
+    })
+  };
+
+  const observer = new IntersectionObserver(callback, options);
+
+  className.forEach((target) => {
+    observer.observe(target);
+  })
+
+}
+
+const sec2Animation1 =Array.from(document.getElementsByClassName("sec2-animation1"));
+const sec2Animation2 =Array.from(document.getElementsByClassName("sec2-animation2"));
+const bottomElements =Array.from(document.getElementsByClassName("animation-to-bottom"));
+const topElements =Array.from(document.getElementsByClassName("animation-to-top"));
+
+animObserver(sec2Animation1, 0);
+animObserver(sec2Animation2, 300);
+animObserver(bottomElements, 0);
+animObserver(topElements, 300);
