@@ -78,7 +78,7 @@ export async function onRequestPost(context) {
       sendMail(contact, context.env.SENDGRID_API_KEY)
     ]);
 
-    return Response.redirect(`${origin}/public/index`)
+    return Response.redirect(`${origin}/index`)
   } catch (err) {
     console.error("Error:", err);
     return new Response(JSON.stringify({ message: err.message }), {
