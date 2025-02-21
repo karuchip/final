@@ -1,5 +1,4 @@
 
-const sgMail = require('@sendgrid/mail');
 
 function buildMessage({ email, name, company }) {
   return {
@@ -47,18 +46,28 @@ async function sendContact(contact, apiKey) {
 
 // SendGrid からメール送信
 async function sendMail({ email, name, company }, apiKey) {
-  sgMail.setApiKey(apiKey);
+
   const message = buildMessage({ email, name, company });
 
   try {
-    await sgMail.send(message);
+    const response = await fetch("https://api.sendgrid.com/v3/mail/send", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(message),
+    });
+    if (!response.ok) {
+      throw new Error(`メールの送信に失敗しました: ${response.statusText}`);
+    }
     return { ok: true };
   } catch (err) {
-    throw new Error(`メールの送信に失敗しました: ${err.message}`);
+    throw err;
   }
 }
 
-// Cloudflare Workers の POST ハンドラー
+// Cloudflare Workers
 export async function onRequestPost(context) {
   try {
     const contact = await context.request.json();
