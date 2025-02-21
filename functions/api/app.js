@@ -69,18 +69,16 @@ async function sendMail({ email, name, company }, apiKey) {
 
 // Cloudflare Workers
 export async function onRequestPost(context) {
-  try {
-    const contact = await context.request.json();
+  const contact = await context.request.json();
+  const {origin} = new URL(context.request.url);
 
+  try {
     await Promise.all([
       sendContact(contact, context.env.MICROCMS_API_KEY),
       sendMail(contact, context.env.SENDGRID_API_KEY)
     ]);
 
-    return new Response(JSON.stringify({ message: "お問い合わせ送信成功" }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
+    return Response.redirect(`${origin}/public/index`)
   } catch (err) {
     console.error("Error:", err);
     return new Response(JSON.stringify({ message: err.message }), {
