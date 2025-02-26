@@ -70,7 +70,6 @@ async function sendMail({ email, name, company }, apiKey) {
 // Cloudflare Workers
 export async function onRequestPost(context) {
   const contact = await context.request.json();
-  const {origin} = new URL(context.request.url);
 
   try {
     await Promise.all([
@@ -78,7 +77,7 @@ export async function onRequestPost(context) {
       sendMail(contact, context.env.SENDGRID_API_KEY)
     ]);
 
-    return Response.redirect(`${origin}/index`)
+    return Response.redirect("https://final-5t3.pages.dev/index.html", 302);
   } catch (err) {
     console.error("Error:", err);
     return new Response(JSON.stringify({ message: err.message }), {
