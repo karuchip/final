@@ -69,6 +69,8 @@ async function sendMail({ email, name, company }, apiKey) {
 // Cloudflare Workers
 export async function onRequestPost(context) {
   const contact = await context.request.json();
+  console.log(`microcmsのapiキーは、${context.env.MICROCMS_API_KEY}`);
+  console.log(`sendgridのapiキーは、${context.env.SENDGRID_API_KEY}`);
 
   try {
     await Promise.all([
