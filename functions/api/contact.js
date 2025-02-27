@@ -1,5 +1,4 @@
-
-
+//メール本文作成
 function buildMessage({ email, name, company }) {
   return {
     personalizations: [{ to: [{ email, name }] }],
@@ -69,13 +68,12 @@ async function sendMail({ email, name, company }, apiKey) {
 
 // Cloudflare Workers
 export async function onRequestPost(context) {
-  console.log("app.jsにて、cloudflare worksのファンクションが呼び出されました。");
   const contact = await context.request.json();
-  console.log(`form.jsから受け取ったデータはこちら: ${contact}`);
+
   try {
     await Promise.all([
       sendContact(contact, context.env.MICROCMS_API_KEY),
-      sendMail({ email: contact.email, name: contact.name, company: contact.company }, context.env.SENDGRID_API_KEY)
+      sendMail({email: contact.email, name: contact.name, company: contact.company }, context.env.SENDGRID_API_KEY)
     ]);
 
     return new Response(JSON.stringify({ message: "お問い合わせ送信成功" }), {
@@ -85,7 +83,7 @@ export async function onRequestPost(context) {
 
     // return Response.redirect("https://final-5t3.pages.dev/index.html", 302);
   } catch (err) {
-    console.error("onRequestPostエラーError:", err);
+    console.error("Error:", err);
     return new Response(JSON.stringify({ message: err.message }), {
       status: 500,
       headers: { "Content-Type": "application/json" },

@@ -33,8 +33,17 @@ async function sendContact(entries) {
         body: JSON.stringify(entries),
       }
     );
-  const data = await response.json();
-  console.log(data);
+  const text = await response.text();
+  console.log("Server response:", text);
+
+  try {
+    const data = JSON.parse(text);
+    console.log(data);
+  } catch (err) {
+    console.error("JSON parse error:", err);
+  }
+  // const data = await response.json();
+  // console.log(data);
   if (response.ok) {
     const messageEl = document.getElementById("completion-message");
     messageEl.classList.add("show");

@@ -876,6 +876,7 @@ header {
 
 .submit:hover {
   background-color: #8e8d8d;
+  cursor: pointer;
 }
 
 .err-box {
