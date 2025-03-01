@@ -2,7 +2,6 @@
 $primary-color: #1A1A1C;
 $secondary-color: #EAEAED;
 
-//フォントInter定義
 @mixin InterFont($f-size, $f-weight) {
   font-family: "Inter", serif;
   font-size: $f-size;
@@ -20,6 +19,7 @@ body {
   text-underline-position: from-font;
   letter-spacing: 0;
   position: relative;
+  scroll-behavior: smooth;
 }
 
 li {
@@ -116,6 +116,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 500ms 0s ease-out;
 }
 
 .list li:nth-child(3) {
@@ -236,19 +237,22 @@ header {
     border: none;
   }
 
-  .nav-hanb {
+  .nav-hamb {
     width: 100%;
     background-color: white;
     height: 100%;
     position: fixed;
     z-index: 500;
+    opacity: 1;
+    transition: opacity 0.3s 0s ease-in-out;
   }
-  .hanb-list {
+
+  .hamb-list {
     height: 812px;
     padding: 24px;
   }
 
-  .hanb-list li {
+  .hamb-list li {
     margin: 0 auto;
     width: 80px;
     display: flex;
@@ -257,7 +261,7 @@ header {
     position: relative;
   }
 
-  .hanb-list a {
+  .hamb-list a {
     @include InterFont(16px, 600);
     line-height: 22px;
     width: 100%;
@@ -267,7 +271,7 @@ header {
     padding: 16px 26px;
   }
 
-  .hanb-list li:nth-child(3) {
+  .hamb-list li:nth-child(3) {
     border: 1px solid $secondary-color;
     width: 288px;
     height: 58px;
@@ -275,7 +279,7 @@ header {
     position: relative;
   }
 
-  .hanb-list a:nth-child(3) {
+  .hamb-list a:nth-child(3) {
     height: 22px;
     margin: auto 0;
     position: relative;
@@ -285,10 +289,10 @@ header {
     overflow: hidden;
   }
 
-  .inactive {
-    display: none;
+  .nav-hamb.inactive {
+    opacity: 0;
+    pointer-events: none;
   }
-
 }
 
 

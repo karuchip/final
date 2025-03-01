@@ -86,7 +86,7 @@ async function validationCheck(company, name, email, phoneNumber) {
     boxColorChange("email");
     isValid = false;
   }else if (!email.includes("@")){
-    document.getElementById("email-err").innerHTML = "正しいメールアドレスを入力してください";
+    document.getElementById("email-err").innerHTML = "@を含めた正しいメールアドレスを入力してください";
     boxColorChange("email");
     isValid = false;
   }
@@ -130,9 +130,9 @@ function boxColorChange(category) {
 // ハンバーガーメニュー
 const menu = document.getElementById("menu-btn");
 const cancel = document.getElementById("cancel-btn");
-const nav = document.getElementById("hanb-menu");
+const nav = document.getElementById("hamb-menu");
 
-const toggleActive = ()=>{
+const toggleActive = () => {
   menu.classList.toggle('inactive');
   cancel.classList.toggle('inactive');
   nav.classList.toggle('inactive');
