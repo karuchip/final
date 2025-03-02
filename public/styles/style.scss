@@ -2,7 +2,6 @@
 $primary-color: #1A1A1C;
 $secondary-color: #EAEAED;
 
-//フォントInter定義
 @mixin InterFont($f-size, $f-weight) {
   font-family: "Inter", serif;
   font-size: $f-size;
@@ -20,6 +19,7 @@ body {
   text-underline-position: from-font;
   letter-spacing: 0;
   position: relative;
+  scroll-behavior: smooth;
 }
 
 li {
@@ -96,6 +96,11 @@ header {
   display: flex;
   height: 38px;
   margin: auto 0;
+  padding: 0;
+}
+
+ul.list {
+  padding-left: 0;
 }
 
 .list li {
@@ -116,6 +121,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 500ms 0s ease-out;
 }
 
 .list li:nth-child(3) {
@@ -216,7 +222,6 @@ header {
     height: 22px;
     padding: 0;
     top: 0;
-    // width: 207px;
   }
   .nav {
     display: none;
@@ -236,19 +241,52 @@ header {
     border: none;
   }
 
-  .nav-hanb {
+  .nav-hamb {
     width: 100%;
     background-color: white;
     height: 100%;
     position: fixed;
     z-index: 500;
+    opacity: 1;
   }
-  .hanb-list {
+
+  //ハンバーガーメニュー開閉時のアニメーション
+  @keyframes addHamb {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes removeHamb {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .nav-hamb.inactive {
+    opacity: 0;
+    pointer-events: none;
+    animation: removeHamb 0.3s 0s ease-out;
+  }
+
+  .nav-hamb.active {
+    opacity: 1;
+    pointer-events: all;
+    animation: addHamb 0.3s 0s ease-out;
+  }
+
+
+  .hamb-list {
     height: 812px;
     padding: 24px;
   }
 
-  .hanb-list li {
+  .hamb-list li {
     margin: 0 auto;
     width: 80px;
     display: flex;
@@ -257,7 +295,7 @@ header {
     position: relative;
   }
 
-  .hanb-list a {
+  .hamb-list a {
     @include InterFont(16px, 600);
     line-height: 22px;
     width: 100%;
@@ -267,7 +305,7 @@ header {
     padding: 16px 26px;
   }
 
-  .hanb-list li:nth-child(3) {
+  .hamb-list li:nth-child(3) {
     border: 1px solid $secondary-color;
     width: 288px;
     height: 58px;
@@ -275,7 +313,7 @@ header {
     position: relative;
   }
 
-  .hanb-list a:nth-child(3) {
+  .hamb-list a:nth-child(3) {
     height: 22px;
     margin: auto 0;
     position: relative;
@@ -285,10 +323,10 @@ header {
     overflow: hidden;
   }
 
-  .inactive {
-    display: none;
+  .nav-hamb.inactive {
+    opacity: 0;
+    pointer-events: none;
   }
-
 }
 
 
@@ -612,8 +650,8 @@ header {
     margin: 0 auto;
     width: auto;
     height: 100%;
-    max-width: 343px;
-    max-height: 343px;
+    width: 343px;
+    height: 343px;
     overflow: hidden;
     margin-bottom: 24px;
   }
@@ -809,7 +847,8 @@ header {
     height: auto;
     max-height: 1684px;
     width: auto;
-    margin: 104px 16px;
+    margin: 0 40px;
+    padding: 104px 0;
   }
   .title-contents {
     margin-bottom: 64px;
@@ -935,6 +974,7 @@ header {
 
 .submit:hover {
   background-color: #8e8d8d;
+  cursor: pointer;
 }
 
 //未入力submit押下時のinput-box
@@ -1068,7 +1108,7 @@ footer p {
   }
 }
 .show{
-  animation: fadeInOut 3000ms ease-out forwards;
+  animation: fadeInOut 5ms ease-out forwards;
 }
 
 .completion-message {
@@ -1128,28 +1168,27 @@ footer p {
 #fv-animation2 {
   opacity: 0;
   transition: opacity 0.6s ease-in-out;
-
 }
 #fv-animation2.visible {
   opacity: 1;
 }
 
-//h1 -1
+//h1 -1行目
 #fv-animation3 {
   opacity: 0;
   transform: translateX(-30px);
-  transition: opacity 0.2s ease-in-out, transform 0.6s ease-in-out;
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
 }
 #fv-animation3.visible {
   opacity: 1;
   transform: translate(0);
 }
 
-//h1 -2
+//h1 -2行目
 #fv-animation4 {
   opacity: 0;
   transform: translateX(-30px);
-  transition: opacity 0.2s ease-in-out, transform 0.6s ease-in-out;
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
 }
 #fv-animation4.visible {
   opacity: 1;
@@ -1159,7 +1198,7 @@ footer p {
 #fv-animation5 {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.1s ease-in-out, transform 0.6s ease-in-out;
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
 }
 #fv-animation5.visible {
   opacity: 1;

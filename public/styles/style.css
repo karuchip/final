@@ -10,6 +10,7 @@ body {
   text-underline-position: from-font;
   letter-spacing: 0;
   position: relative;
+  scroll-behavior: smooth;
 }
 
 li {
@@ -81,6 +82,11 @@ header {
   display: flex;
   height: 38px;
   margin: auto 0;
+  padding: 0;
+}
+
+ul.list {
+  padding-left: 0;
 }
 
 .list li {
@@ -104,6 +110,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 500ms 0s ease-out;
 }
 
 .list li:nth-child(3) {
@@ -199,18 +206,63 @@ header {
     background-color: #FFFFFF;
     border: none;
   }
-  .nav-hanb {
+  .nav-hamb {
     width: 100%;
     background-color: white;
     height: 100%;
     position: fixed;
     z-index: 500;
+    opacity: 1;
   }
-  .hanb-list {
+  @-webkit-keyframes addHamb {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes addHamb {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes removeHamb {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes removeHamb {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  .nav-hamb.inactive {
+    opacity: 0;
+    pointer-events: none;
+    -webkit-animation: removeHamb 0.3s 0s ease-out;
+            animation: removeHamb 0.3s 0s ease-out;
+  }
+  .nav-hamb.active {
+    opacity: 1;
+    pointer-events: all;
+    -webkit-animation: addHamb 0.3s 0s ease-out;
+            animation: addHamb 0.3s 0s ease-out;
+  }
+  .hamb-list {
     height: 812px;
     padding: 24px;
   }
-  .hanb-list li {
+  .hamb-list li {
     margin: 0 auto;
     width: 80px;
     display: flex;
@@ -218,7 +270,7 @@ header {
     margin-bottom: 16px;
     position: relative;
   }
-  .hanb-list a {
+  .hamb-list a {
     font-family: "Inter", serif;
     font-size: 16px;
     font-weight: 600;
@@ -229,14 +281,14 @@ header {
     justify-content: center;
     padding: 16px 26px;
   }
-  .hanb-list li:nth-child(3) {
+  .hamb-list li:nth-child(3) {
     border: 1px solid #EAEAED;
     width: 288px;
     height: 58px;
     overflow: hidden;
     position: relative;
   }
-  .hanb-list a:nth-child(3) {
+  .hamb-list a:nth-child(3) {
     height: 22px;
     margin: auto 0;
     position: relative;
@@ -245,8 +297,9 @@ header {
     top: 5px;
     overflow: hidden;
   }
-  .inactive {
-    display: none;
+  .nav-hamb.inactive {
+    opacity: 0;
+    pointer-events: none;
   }
 }
 .hero {
@@ -562,8 +615,8 @@ header {
     margin: 0 auto;
     width: auto;
     height: 100%;
-    max-width: 343px;
-    max-height: 343px;
+    width: 343px;
+    height: 343px;
     overflow: hidden;
     margin-bottom: 24px;
   }
@@ -753,7 +806,8 @@ header {
     height: auto;
     max-height: 1684px;
     width: auto;
-    margin: 104px 16px;
+    margin: 0 40px;
+    padding: 104px 0;
   }
   .title-contents {
     margin-bottom: 64px;
@@ -876,6 +930,7 @@ header {
 
 .submit:hover {
   background-color: #8e8d8d;
+  cursor: pointer;
 }
 
 .err-box {
@@ -1011,8 +1066,8 @@ footer p {
   }
 }
 .show {
-  -webkit-animation: fadeInOut 3000ms ease-out forwards;
-          animation: fadeInOut 3000ms ease-out forwards;
+  -webkit-animation: fadeInOut 5ms ease-out forwards;
+          animation: fadeInOut 5ms ease-out forwards;
 }
 
 .completion-message {
@@ -1088,7 +1143,7 @@ footer p {
 #fv-animation3 {
   opacity: 0;
   transform: translateX(-30px);
-  transition: opacity 0.2s ease-in-out, transform 0.6s ease-in-out;
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
 }
 
 #fv-animation3.visible {
@@ -1099,7 +1154,7 @@ footer p {
 #fv-animation4 {
   opacity: 0;
   transform: translateX(-30px);
-  transition: opacity 0.2s ease-in-out, transform 0.6s ease-in-out;
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
 }
 
 #fv-animation4.visible {
@@ -1110,7 +1165,7 @@ footer p {
 #fv-animation5 {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.1s ease-in-out, transform 0.6s ease-in-out;
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
 }
 
 #fv-animation5.visible {
