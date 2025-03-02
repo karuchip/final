@@ -1,3 +1,3 @@
 # final
 
-Poteman-web-course final assignment
+Potepan-web-course final assignment

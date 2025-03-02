@@ -1066,8 +1066,8 @@ footer p {
   }
 }
 .show {
-  -webkit-animation: fadeInOut 5ms ease-out forwards;
-          animation: fadeInOut 5ms ease-out forwards;
+  -webkit-animation: fadeInOut 5s ease-out forwards;
+          animation: fadeInOut 5s ease-out forwards;
 }
 
 .completion-message {
@@ -1081,7 +1081,7 @@ footer p {
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translateY(150px);
+  transform: translateY(-60px);
 }
 
 .completion-message svg {
