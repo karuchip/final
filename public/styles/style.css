@@ -82,6 +82,11 @@ header {
   display: flex;
   height: 38px;
   margin: auto 0;
+  padding: 0;
+}
+
+ul.list {
+  padding-left: 0;
 }
 
 .list li {
@@ -208,7 +213,50 @@ header {
     position: fixed;
     z-index: 500;
     opacity: 1;
-    transition: opacity 0.3s 0s ease-in-out;
+  }
+  @-webkit-keyframes addHamb {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes addHamb {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes removeHamb {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes removeHamb {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  .nav-hamb.inactive {
+    opacity: 0;
+    pointer-events: none;
+    -webkit-animation: removeHamb 0.3s 0s ease-out;
+            animation: removeHamb 0.3s 0s ease-out;
+  }
+  .nav-hamb.active {
+    opacity: 1;
+    pointer-events: all;
+    -webkit-animation: addHamb 0.3s 0s ease-out;
+            animation: addHamb 0.3s 0s ease-out;
   }
   .hamb-list {
     height: 812px;
@@ -567,8 +615,8 @@ header {
     margin: 0 auto;
     width: auto;
     height: 100%;
-    max-width: 343px;
-    max-height: 343px;
+    width: 343px;
+    height: 343px;
     overflow: hidden;
     margin-bottom: 24px;
   }
@@ -758,7 +806,8 @@ header {
     height: auto;
     max-height: 1684px;
     width: auto;
-    margin: 104px 16px;
+    margin: 0 40px;
+    padding: 104px 0;
   }
   .title-contents {
     margin-bottom: 64px;
@@ -1017,8 +1066,8 @@ footer p {
   }
 }
 .show {
-  -webkit-animation: fadeInOut 3000ms ease-out forwards;
-          animation: fadeInOut 3000ms ease-out forwards;
+  -webkit-animation: fadeInOut 5ms ease-out forwards;
+          animation: fadeInOut 5ms ease-out forwards;
 }
 
 .completion-message {
@@ -1094,7 +1143,7 @@ footer p {
 #fv-animation3 {
   opacity: 0;
   transform: translateX(-30px);
-  transition: opacity 0.2s ease-in-out, transform 0.6s ease-in-out;
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
 }
 
 #fv-animation3.visible {
@@ -1105,7 +1154,7 @@ footer p {
 #fv-animation4 {
   opacity: 0;
   transform: translateX(-30px);
-  transition: opacity 0.2s ease-in-out, transform 0.6s ease-in-out;
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
 }
 
 #fv-animation4.visible {
@@ -1116,7 +1165,7 @@ footer p {
 #fv-animation5 {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.1s ease-in-out, transform 0.6s ease-in-out;
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
 }
 
 #fv-animation5.visible {

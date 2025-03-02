@@ -7,7 +7,6 @@ formEl.addEventListener("submit", async(evt) => {
 
   const formData = new FormData(formEl);
   const entries = Object.fromEntries(formData.entries());
-
   const company = entries.company;
   const name = entries.name;
   const email = entries.email;
@@ -42,13 +41,13 @@ async function sendContact(entries) {
   } catch (err) {
     console.error("JSON parse error:", err);
   }
-  // const data = await response.json();
-  // console.log(data);
   if (response.ok) {
     const messageEl = document.getElementById("completion-message");
     messageEl.classList.add("show");
   }
 }
+
+
 
 //form入力のバリデーションチェック
 async function validationCheck(company, name, email, phoneNumber) {
@@ -104,7 +103,6 @@ async function validationCheck(company, name, email, phoneNumber) {
   return isValid;
 }
 
-
 //エラーメッセージの削除
 function errMessageReset() {
   const items = ["company-err", "name-err", "email-err", "phone-err"];
@@ -127,6 +125,7 @@ function boxColorChange(category) {
 }
 
 
+
 // ハンバーガーメニュー
 const menu = document.getElementById("menu-btn");
 const cancel = document.getElementById("cancel-btn");
@@ -135,7 +134,14 @@ const nav = document.getElementById("hamb-menu");
 const toggleActive = () => {
   menu.classList.toggle('inactive');
   cancel.classList.toggle('inactive');
-  nav.classList.toggle('inactive');
+  // nav.classList.toggle('inactive');
+  if (nav.classList.contains('inactive')) {
+    nav.classList.remove('inactive');
+    nav.classList.add('active');
+  } else {
+    nav.classList.remove('active');
+    nav.classList.add('inactive');
+  }
 }
 
 const btns = Array.from(document.getElementsByClassName("js-icon"));
@@ -147,6 +153,7 @@ const items = Array.from(document.getElementsByClassName("js-lists"));
 items.forEach ((item) => {
   item.addEventListener("click", toggleActive)
 });
+
 
 
 //アニメーション
@@ -194,7 +201,6 @@ function animObserver(className, delay) {
   className.forEach((target) => {
     observer.observe(target);
   })
-
 }
 
 const sec2Animation1 =Array.from(document.getElementsByClassName("sec2-animation1"));
@@ -206,3 +212,20 @@ animObserver(sec2Animation1, 0);
 animObserver(sec2Animation2, 300);
 animObserver(bottomElements, 0);
 animObserver(topElements, 300);
+
+
+
+//ナビゲーションから画面遷移
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetSection = document.querySelector(targetId);
+      const offsetPosition = targetSection.getBoundingClientRect().top + window.scrollY - document.querySelector('header').offsetHeight;
+      console.log(targetSection.getBoundingClientRect().top);
+      window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: 'smooth'
+      });
+  });
+});
