@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,500;1,14..32,500&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <script src="/form.js" defer></script>
+    <title>POTEPAN Tech Partners</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-logo">POTEPAN Tech Partners</div>
+
+      <div class="icon-box">
+        <button class="js-icon" id="menu-btn" aria-label="メニューを開く">
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 17h12a1 1 0 0 1 .117 1.993L15 19H3a1 1 0 0 1-.117-1.993L3 17h12H3Zm0-6h18a1 1 0 0 1 .117 1.993L21 13H3a1 1 0 0 1-.117-1.993L3 11h18H3Zm0-6h15a1 1 0 0 1 .117 1.993L18 7H3a1 1 0 0 1-.117-1.993L3 5h15H3Z" fill="#212121"/></svg>
+        </button>
+        <button class="js-icon inactive" id="cancel-btn" aria-label="メニューを閉じる">
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m4.21 4.387.083-.094a1 1 0 0 1 1.32-.083l.094.083L12 10.585l6.293-6.292a1 1 0 1 1 1.414 1.414L13.415 12l6.292 6.293a1 1 0 0 1 .083 1.32l-.083.094a1 1 0 0 1-1.32.083l-.094-.083L12 13.415l-6.293 6.292a1 1 0 0 1-1.414-1.414L10.585 12 4.293 5.707a1 1 0 0 1-.083-1.32l.083-.094-.083.094Z" fill="#212121"/></svg>
+        </button>
+      </div>
+
+      <nav class="nav" role="navigation">
+        <ul class="list">
+          <li class="animation1"><a href="#section2" class="nav-link">SERVICE</a></li>
+          <li class="animation1"><a href="#section3" class="nav-link">CLIENT</a></li>
+          <li class="animation2"><a href="#section4" class="nav-link">CONTACT</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ハンバーガーメニュー -->
+    <nav class="nav-hamb inactive" id="hamb-menu" role="navigation">
+      <ul class="hamb-list">
+        <li class="js-lists animation1"><a href="#section2" class="nav-link">SERVICE</a></li>
+        <li class="js-lists animation1"><a href="#section3" class="nav-link">CLIENT</a></li>
+        <li class="js-lists animation2"><a href="#section4" class="nav-link">CONTACT</a></li>
+      </ul>
+    </nav>
+
+    <main>
+
+      <!-- FV -->
+      <section class="hero">
+        <div class="main-container">
+          <div class="main-msg">
+            <h1><span id="fv-animation3">テクノロジーで</span><span id="fv-animation4">未来を創る</span></h1>
+            <div id="fv-animation5">
+              <p><span>最先端の開発技術で</span><span>あなたのビジネスをお手伝いします</span></p>
+              <div class="contact-link animation2">
+                <a href="#section4" class="nav-link">CONTACT</a>
+              </div>
+            </div>
+          </div>
+          <div id="fv-animation1" class="mainPic-container">
+            <img src="/images/1_main.png" alt="トップ画像">
+          </div>
+        </div>
+        <p id="fv-animation2" class="mainPic-msg">Create the Future</p>
+      </section>
+
+
+      <!-- 以下本文の位置は画面中央揃え -->
+
+      <section class="section2" id="section2">
+        <div class="center-container section2-container">
+          <div class="img1-container sec2-animation1">
+            <img src="/images/2_service.png" alt="サービスイメージ画像">
+          </div>
+          <div class="service-desc sec2-animation2">
+            <h2>SERVICE</h2>
+            <p class="subtitle"><span></span>質の高いホームページ制作</p>
+            <p class="desc">一般的な単調なホームページとは異なり、動きをつけたダイナミックなホームページ制作を得意としております。ご要望に合わせてカスタマイズを行うことで、最適なホームページを実現します。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section3" id="section3">
+        <div class="center-container">
+          <div class="title-contents animation-to-bottom">
+            <h2>CLIENT</h2>
+            <p class="subtitle"><span></span>お客様の声</p>
+          </div>
+          <div class="client-container animation-to-top">
+            <article class="article1">
+              <div class="img-container1 container">
+                <img src="/images/3_client1.png" alt="クライアントイメージ画像1">
+              </div>
+              <div class="badge">
+                <p class="badge-content">IT企業</p>
+              </div>
+              <p class="client-desc">新しいホームページの立ち上げをサポートしていただき感謝しています。私たちのビジョンとニーズを完璧に理解し、それを美しく機能的なウェブサイトに変えてくれました。</p>
+              <p class="client-name">株式会社COMPANY</p>
+            </article>
+            <article class="article2">
+              <div class="img-container2 container">
+                <img src="/images/3_client2.png" alt="クライアントイメージ画像2">
+              </div>
+              <div class="badge">
+                <p class="badge-content">IT企業</p>
+              </div>
+              <p class="client-desc">私たちの企業ウェブサイトのリニューアルプロジェクトを担当していただきました。SEO対策とモバイル最適化にも細心の注意を払ってくれました。</p>
+              <p class="client-name">株式会社サテライトオフィス</p>
+            </article>
+            <article class="article3">
+              <div class="img-container3 container">
+                <img src="/images/3_client1.png" alt="クライアントイメージ画像3">
+              </div>
+              <div class="badge">
+                <p class="badge-content">飲食店</p>
+              </div>
+              <p class="client-desc">私たちのレストランのウェブサイトを再設計していただきました。店の料理と雰囲気を完璧に捉え、訪問者が簡単にメニューを閲覧し、予約を取れる使いやすいインターフェイスを提供してくれました。</p>
+              <p class="client-name">株式会社うまい堂</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section4" id="section4">
+        <div class="center-container">
+          <div class="contact-content">
+            <div class="contact-title animation-to-bottom">
+              <h2>CONTACT</h2>
+              <p>お問い合わせ</p>
+            </div>
+
+            <form id="contact-form" class="form animation-to-top">
+                <label>
+                  <p>企業名</p>
+                  <input id="company" name="company" type="text" class="input">
+                  <div id="company-err" class="err"></div>
+                </label>
+
+                <label>
+                  <p>お名前</p>
+                  <input id="name" name="name" type="text" class="input">
+                  <div id="name-err" class="err"></div>
+                </label>
+
+                <label>
+                  <p>メールアドレス</p>
+                  <input id="email" name="email" type="text" class="input">
+                  <div id="email-err" class="err"></div>
+                </label>
+
+                <label>
+                  <p>電話番号</p>
+                  <input id="phoneNumber" name="phoneNumber" type="text" class="input">
+                  <div id="phone-err" class="err"></div>
+                </label>
+                <button id="submit" type="submit" class="submit">送信</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+      <footer>
+        <div class="footer-container">
+          <div class="footer-logo logo-bigger">POTEPAN Tech Partners</div>
+          <p>© 2024 POTEPAN Tech Partners. All rights reserved.</p>
+          <div id="completion-message" class="completion-message">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 1.999c5.524 0 10.002 4.478 10.002 10.002 0 5.523-4.478 10.001-10.002 10.001-5.524 0-10.002-4.478-10.002-10.001C1.998 6.477 6.476 1.999 12 1.999Zm0 1.5a8.502 8.502 0 1 0 0 17.003A8.502 8.502 0 0 0 12 3.5Zm-.004 7a.75.75 0 0 1 .744.648l.007.102.003 5.502a.75.75 0 0 1-1.493.102l-.007-.101-.003-5.502a.75.75 0 0 1 .75-.75ZM12 7.003a.999.999 0 1 1 0 1.997.999.999 0 0 1 0-1.997Z" fill="#DDE6E8"/></svg>
+            <span>お問い合わせが完了しました</span>
+          </div>
+        </div>
+      </footer>
+    </body>
+</html>
