@@ -44,6 +44,11 @@ async function sendContact(entries) {
   if (response.ok) {
     const messageEl = document.getElementById("completion-message");
     messageEl.classList.add("show");
+
+    // 送信完了メッセージの表示完了後にshowクラスを削除
+    setTimeout(() => {
+      messageEl.classList.remove("show");
+    }, 5000);
   }
 }
 
