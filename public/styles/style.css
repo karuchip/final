@@ -370,13 +370,6 @@ ul.list {
   align-items: center;
 }
 
-.contact-link a:focus {
-  -webkit-animation-timing-function: ease-out;
-          animation-timing-function: ease-out;
-  -webkit-animation-duration: 500ms;
-          animation-duration: 500ms;
-}
-
 .mainPic-container {
   width: 843px;
   height: 500px;
@@ -442,6 +435,54 @@ ul.list {
     letter-spacing: 0;
     top: -170px;
     left: 49.5%;
+  }
+}
+@media (max-width: 1024px) {
+  .contact-link {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+  }
+  .contact-link a {
+    color: transparent;
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+  }
+  .contact-link::before {
+    content: "お問い合わせ";
+    color: #1A1A1C;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: color 300ms ease-out;
+    z-index: 3;
+  }
+  /* 背景アニメーション */
+  .contact-link::after {
+    display: block;
+    content: "";
+    position: absolute;
+    height: 100%;
+    inset: 0;
+    background: #1A1A1C;
+    transition: transform 300ms ease-out;
+    transform: scaleX(0);
+    transform-origin: right;
+    z-index: -1; /* aタグの下にする */
+  }
+  /* ホバー時の動作 */
+  .contact-link a:hover {
+    color: transparent;
+  }
+  .contact-link:hover::before {
+    color: white;
+  }
+  .contact-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+    z-index: -1;
   }
 }
 @media (max-width: 640px) {
@@ -579,8 +620,8 @@ ul.list {
   .img1-container {
     grid-column: 1/2;
     grid-row: 1/2;
-    width: 100%;
-    height: 100%;
+    width: clamp(300px, 45.1vw, 462px);
+    height: clamp(300px, 45.1vw, 462px);
     overflow: hidden;
     margin-left: 40px;
   }
@@ -613,18 +654,14 @@ ul.list {
   }
   .img1-container {
     margin: 0 auto;
-    width: auto;
-    height: 100%;
-    width: 343px;
-    height: 343px;
+    width: clamp(288px, 53.6vw, 343px);
+    height: clamp(288px, 53.6vw, 343px);
     overflow: hidden;
     margin-bottom: 24px;
   }
   .img1-container img {
     width: 100%;
     height: 100%;
-    max-height: 343px;
-    min-height: 288px;
     -o-object-fit: cover;
        object-fit: cover;
   }
@@ -787,9 +824,8 @@ ul.list {
   }
   .container {
     width: 100%;
-    height: auto;
-    max-height: 221px;
-    min-height: 142px;
+    height: clamp(142px, 21.6vw, 221px);
+    overflow: hidden;
   }
   .container img {
     width: 100%;
@@ -800,13 +836,16 @@ ul.list {
   .client-desc {
     width: 100%;
   }
+  .client-name {
+    width: 100%;
+  }
 }
-@media (max-width: 800px) {
+@media (max-width: 640px) {
   .section3 {
     height: auto;
     max-height: 1684px;
     width: auto;
-    margin: 0 40px;
+    margin: 0 16px;
     padding: 104px 0;
   }
   .title-contents {
@@ -818,18 +857,23 @@ ul.list {
     width: 132px;
     height: 57px;
   }
+  .client-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    gap: 16px;
+  }
+  .title-contents {
+    margin-bottom: 64px;
+  }
   article {
     width: 296px;
   }
   .container {
     width: 296px;
-    height: 142px;
   }
-  .container img {
-    width: 100%;
-    height: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
+  .client-desc {
+    width: 296px;
   }
   .client-desc {
     width: 296px;
@@ -843,11 +887,16 @@ ul.list {
     display: block;
     margin: 0 auto;
   }
-  .title-contents {
-    margin-bottom: 24px;
-  }
   .container {
     margin-top: 40px;
+    width: 296px;
+    height: 142px;
+  }
+  .container img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
 }
 .section4 {
@@ -904,10 +953,23 @@ ul.list {
   border: 1px solid #D8D8DB;
   border-radius: 8px;
   box-sizing: border-box;
+  font-size: 16px;
+  line-height: 170%;
+  letter-spacing: 4%;
+}
+
+.input:not(:-moz-placeholder-shown) {
+  border: 1px solid black;
+}
+
+.input:not(:placeholder-shown) {
+  border: 1px solid black;
 }
 
 .err {
   margin: 0 0 15px 0;
+  font-size: 12px;
+  font-weight: 400;
 }
 
 .input-entered {
@@ -926,6 +988,7 @@ ul.list {
   font-weight: 700;
   padding: 0;
   border: none;
+  font-size: 16px;
 }
 
 .submit:hover {
